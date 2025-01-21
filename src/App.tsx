@@ -1,14 +1,28 @@
-import { ProfilePanel } from './components/layout/ProfilePanel';
-import { TimelinePanel } from './components/layout/TimelinePanel';
-import { RightPanel } from './components/layout/RightPanel';
+import * as React from 'react';
 import { Search } from './components/search/Search';
+import { Clock, Code, BarChart, Award } from 'lucide-react';
+import { cn } from './lib/utils';
+import { TimelineView } from './views/TimelineView';
+import { SkillsView } from './views/SkillsView';
+import { MetricsView } from './views/MetricsView';
+import { AwardsView } from './views/AwardsView';
+import { ProfileHeader } from './components/layout/ProfileHeader';
+
+const navigationItems = [
+  { id: 'timeline', label: 'Experience Timeline', icon: Clock },
+  { id: 'skills', label: 'Skills & Expertise', icon: Code },
+  { id: 'metrics', label: 'Key Metrics', icon: BarChart },
+  { id: 'awards', label: 'Awards & Recognition', icon: Award }
+];
 
 export function App() {
+  const [activeView, setActiveView] = React.useState('timeline');
+
   return (
     <div className="min-h-screen flex flex-col bg-[#f5f8fa]">
-      {/* Header */}
-      <header className="border-b border-[#cbd6e2] bg-white">
-        <div className="container mx-auto px-6 h-16 flex items-center justify-between">
+      {/* Top Navigation */}
+      <header className="h-16 border-b border-[#cbd6e2] bg-white">
+        <div className="container mx-auto px-6 h-full flex items-center justify-between">
           <h1 className="text-xl font-semibold text-[#33475b]">Interactive Cover Letter</h1>
           <div className="w-96">
             <Search />
@@ -16,12 +30,54 @@ export function App() {
         </div>
       </header>
 
+      {/* Profile Header */}
+      <ProfileHeader />
+
       {/* Main Content */}
-      <main className="flex-1 grid grid-cols-[350px_1fr_350px] bg-[#f5f8fa]">
-        <ProfilePanel />
-        <TimelinePanel />
-        <RightPanel />
-      </main>
+      <div className="flex-1 flex">
+        {/* Left Sidebar Navigation */}
+        <nav className="w-64 flex-shrink-0 bg-white border-r border-[#cbd6e2] p-4">
+          <ul className="space-y-1">
+            {navigationItems.map((item) => (
+              <li key={item.id}>
+                <button
+                  onClick={() => setActiveView(item.id)}
+                  className={cn(
+                    "w-full px-4 py-2 rounded-md",
+                    "flex items-center gap-3",
+                    "text-sm font-medium",
+                    "transition-colors",
+                    activeView === item.id
+                      ? "bg-[#ff7a59] text-white"
+                      : "text-[#33475b] hover:bg-[#f5f8fa]"
+                  )}
+                >
+                  <item.icon className="h-4 w-4" />
+                  {item.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Main Content Area */}
+        <main className="flex-1 p-6">
+          <div className="w-[900px]">
+            {/* Only MetricsView uses grid layout */}
+            {activeView === 'metrics' ? (
+              <div className="grid grid-cols-2 gap-6">
+                <MetricsView />
+              </div>
+            ) : (
+              <>
+                {activeView === 'timeline' && <TimelineView />}
+                {activeView === 'skills' && <SkillsView />}
+                {activeView === 'awards' && <AwardsView />}
+              </>
+            )}
+          </div>
+        </main>
+      </div>
     </div>
   );
 } 
