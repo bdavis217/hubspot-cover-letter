@@ -96,22 +96,24 @@ export function MetricsAndAwards() {
   return (
     <div className="space-y-6">
       {/* Key Metrics */}
-      <Card>
+      <Card className="bg-white border-[#cbd6e2]">
         <CardHeader>
-          <CardTitle className="text-lg font-semibold">Key Metrics</CardTitle>
+          <CardTitle className="text-lg font-semibold text-[#33475b]">Key Metrics</CardTitle>
         </CardHeader>
         <CardContent>
           {metrics.map((metric, index) => (
             <div
               key={index}
-              className="flex items-center gap-4 p-2 rounded-lg hover:bg-muted/50 transition-colors"
+              className="flex items-center gap-4 p-2 rounded-lg hover:bg-[#f5f8fa] transition-colors"
             >
-              <div className="h-10 w-10 rounded-full bg-blue-50 flex items-center justify-center">
-                {metric.icon}
+              <div className="h-10 w-10 rounded-full bg-[#e5f5f8] flex items-center justify-center">
+                {React.cloneElement(metric.icon as React.ReactElement, {
+                  className: "h-4 w-4 text-[#00a4bd]"
+                })}
               </div>
               <div className="flex-1">
-                <p className="text-sm text-muted-foreground">{metric.label}</p>
-                <p className="font-semibold">{metric.value}</p>
+                <p className="text-sm text-[#516f90]">{metric.label}</p>
+                <p className="font-semibold text-[#33475b]">{metric.value}</p>
               </div>
             </div>
           ))}

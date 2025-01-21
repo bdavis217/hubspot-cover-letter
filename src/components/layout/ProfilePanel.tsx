@@ -79,32 +79,32 @@ export function ProfilePanel() {
   ];
 
   return (
-    <TooltipProvider>
+    <div className="bg-white border-r border-[#cbd6e2]">
       <div className="p-6 space-y-6">
         {/* Profile Header */}
         <div className="flex flex-col items-center text-center">
-          <Avatar className="h-24 w-24 mb-4 ring-2 ring-border ring-offset-2">
+          <Avatar className="h-24 w-24 mb-4 ring-2 ring-[#cbd6e2] ring-offset-2">
             <AvatarImage src={profilePic} alt="Brian Davis" />
-            <AvatarFallback className="bg-muted text-muted-foreground">BD</AvatarFallback>
+            <AvatarFallback className="bg-[#f5f8fa] text-[#516f90]">BD</AvatarFallback>
           </Avatar>
-          <h2 className="text-xl font-semibold">Brian Davis</h2>
-          <p className="text-sm font-medium">Executive Director, Strategic & Academic Technology</p>
-          <p className="text-sm text-muted-foreground">LSU Online & Continuing Education</p>
+          <h2 className="text-xl font-semibold text-[#33475b]">Brian Davis</h2>
+          <p className="text-sm font-medium text-[#516f90]">Executive Director, Strategic & Academic Technology</p>
+          <p className="text-sm text-[#516f90]">LSU Online & Continuing Education</p>
         </div>
 
         {/* Contact Info */}
         <div className="space-y-3">
           <div className="flex items-center gap-3 text-sm">
-            <Mail className="h-4 w-4 text-muted-foreground" />
-            <a href="mailto:bdavis217@gmail.com" className="text-primary hover:underline">
+            <Mail className="h-4 w-4 text-[#516f90]" />
+            <a href="mailto:bdavis217@gmail.com" className="text-[#00a4bd] hover:text-[#0097ad] transition-colors">
               bdavis217@gmail.com
             </a>
           </div>
           <div className="flex items-center gap-3 text-sm">
-            <Linkedin className="h-4 w-4 text-muted-foreground" />
+            <Linkedin className="h-4 w-4 text-[#516f90]" />
             <a 
-              href="https://www.linkedin.com/in/brianelliottdavis/" 
-              className="text-primary hover:underline"
+              href="https://www.linkedin.com/in/brianelliottdavis/"
+              className="text-[#00a4bd] hover:text-[#0097ad] transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -112,10 +112,10 @@ export function ProfilePanel() {
             </a>
           </div>
           <div className="flex items-center gap-3 text-sm">
-            <Github className="h-4 w-4 text-muted-foreground" />
+            <Github className="h-4 w-4 text-[#516f90]" />
             <a 
-              href="https://github.com/bdavis217" 
-              className="text-primary hover:underline"
+              href="https://github.com/bdavis217"
+              className="text-[#00a4bd] hover:text-[#0097ad] transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -123,16 +123,16 @@ export function ProfilePanel() {
             </a>
           </div>
           <div className="flex items-center gap-3 text-sm">
-            <Building2 className="h-4 w-4 text-muted-foreground" />
-            <span>20+ Years Experience</span>
+            <Building2 className="h-4 w-4 text-[#516f90]" />
+            <span className="text-[#516f90]">20+ Years Experience</span>
           </div>
         </div>
 
-        <Separator />
+        <Separator className="bg-[#cbd6e2]" />
 
         {/* Skills */}
         <div className="space-y-6">
-          <h3 className="text-sm font-semibold flex items-center gap-2">
+          <h3 className="text-sm font-semibold flex items-center gap-2 text-[#33475b]">
             <CircleDot className="h-4 w-4" />
             Skills & Expertise
           </h3>
@@ -141,76 +141,46 @@ export function ProfilePanel() {
             {skillCategories.map((category) => (
               <div key={category.name} className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <category.icon className={cn("h-5 w-5", category.colorClass.text)} />
-                  <h4 className="text-sm font-semibold">{category.name}</h4>
+                  <category.icon className="h-5 w-5 text-[#00a4bd]" />
+                  <h4 className="text-sm font-semibold text-[#33475b]">{category.name}</h4>
                 </div>
                 
-                <div className="grid auto-rows-fr gap-3" 
-                     style={{ 
-                       gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))'
-                     }}>
+                <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}>
                   {category.skills.map((skill) => (
-                    <Tooltip key={skill.name} delayDuration={300}>
-                      <TooltipTrigger asChild>
-                        <button
-                          onClick={() => {
-                            console.log(`Filter by: ${skill.name}`);
-                          }}
-                          className={cn(
-                            // Base styles
-                            "min-h-[42px] px-4 py-2",
-                            "text-sm font-medium",
-                            "rounded-lg shadow-sm",
-                            "border border-transparent",
-                            
-                            // Layout
-                            "w-full",
-                            "flex items-center",
-                            "text-left",
-                            
-                            // Text handling
-                            "whitespace-normal break-words",
-                            
-                            // Colors and effects
-                            category.colorClass.bg.replace("/50", "/60"),
-                            category.colorClass.hover.replace("/50", "/75"),
-                            "transition-all duration-200",
-                            
-                            // Focus states
-                            "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1",
-                            
-                            // Dark mode
-                            "dark:border-gray-800"
-                          )}
-                        >
-                          <span className="flex items-center gap-2 min-w-0">
-                            <span className="break-words">{skill.name}</span>
-                            {skill.level === "expert" && (
-                              <span className={cn(
-                                "w-1.5 h-1.5 rounded-full flex-shrink-0",
-                                "ring-1 ring-offset-1",
-                                category.colorClass.text
-                              )} />
-                            )}
-                          </span>
-                        </button>
-                      </TooltipTrigger>
-                      <TooltipContent side="top" align="center">
-                        {skill.name}
-                      </TooltipContent>
-                    </Tooltip>
+                    <button
+                      key={skill.name}
+                      onClick={() => {
+                        console.log(`Filter by: ${skill.name}`);
+                      }}
+                      className={cn(
+                        "min-h-[42px] px-4 py-2",
+                        "text-sm font-medium",
+                        "rounded-lg",
+                        "border border-[#cbd6e2]",
+                        "bg-white hover:bg-[#f5f8fa]",
+                        "text-[#33475b]",
+                        "transition-all duration-200",
+                        "focus:outline-none focus:ring-2 focus:ring-[#00a4bd] focus:ring-offset-1"
+                      )}
+                    >
+                      <span className="flex items-center gap-2">
+                        <span>{skill.name}</span>
+                        {skill.level === "expert" && (
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#00a4bd]" />
+                        )}
+                      </span>
+                    </button>
                   ))}
                 </div>
                 
-                {/* Divider except for last category */}
                 {category.name !== skillCategories[skillCategories.length - 1].name && (
-                  <Separator className="mt-6" />
+                  <Separator className="mt-6 bg-[#cbd6e2]" />
                 )}
               </div>
             ))}
           </div>
         </div>
       </div>
-    </TooltipProvider>
+    </div>
   );
 } 

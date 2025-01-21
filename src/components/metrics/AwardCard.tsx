@@ -18,18 +18,18 @@ interface AwardCardProps {
 
 export function AwardCard({ icon: Icon, title, year, description, links }: AwardCardProps) {
   return (
-    <div className="p-3 rounded-lg hover:bg-muted/50 transition-all duration-200">
+    <div className="p-3 rounded-lg hover:bg-[#f5f8fa] transition-all duration-200">
       <div className="flex items-start gap-4">
-        <div className="h-8 w-8 rounded-full bg-purple-50 flex items-center justify-center flex-shrink-0">
-          <Icon className="h-4 w-4 text-purple-500" />
+        <div className="h-8 w-8 rounded-full bg-[#ffeae5] flex items-center justify-center flex-shrink-0">
+          <Icon className="h-4 w-4 text-[#ff7a59]" />
         </div>
         <div className="space-y-1 flex-1">
           <div className="flex items-baseline justify-between gap-2">
-            <h4 className="font-medium leading-none">{title}</h4>
-            <span className="text-sm text-muted-foreground whitespace-nowrap">{year}</span>
+            <h4 className="font-medium leading-none text-[#33475b]">{title}</h4>
+            <span className="text-sm text-[#516f90] whitespace-nowrap">{year}</span>
           </div>
           {description && (
-            <p className="text-sm text-muted-foreground">{description}</p>
+            <p className="text-sm text-[#516f90]">{description}</p>
           )}
           {links && links.length > 0 && (
             <div className="flex gap-3 mt-2">
@@ -41,7 +41,7 @@ export function AwardCard({ icon: Icon, title, year, description, links }: Award
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
+                    className="text-sm text-[#00a4bd] hover:text-[#0097ad] transition-colors inline-flex items-center gap-1"
                   >
                     <LinkIconComponent className="h-3 w-3" />
                     {link.label}

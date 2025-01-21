@@ -5,11 +5,11 @@ import { Search } from './components/search/Search';
 
 export function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#f5f8fa]">
       {/* Header */}
-      <header className="border-b">
+      <header className="border-b border-[#cbd6e2] bg-white">
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-          <h1 className="text-xl font-semibold">Interactive Cover Letter</h1>
+          <h1 className="text-xl font-semibold text-[#33475b]">Interactive Cover Letter</h1>
           <div className="w-96">
             <Search />
           </div>
@@ -17,7 +17,7 @@ export function App() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 grid grid-cols-[350px_1fr_350px] bg-background">
+      <main className="flex-1 grid grid-cols-[350px_1fr_350px] bg-[#f5f8fa]">
         <ProfilePanel />
         <TimelinePanel />
         <RightPanel />

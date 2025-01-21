@@ -47,81 +47,42 @@ export function TimelineEntry({
       </div>
 
       {/* Content Card */}
-      <Card className={cn(
-        "transition-all duration-300",
-        "hover:shadow-lg",
-        isActive && "ring-1 ring-blue-500/20 shadow-lg"
-      )}>
-        <div 
-          className="cursor-pointer p-6 space-y-4"
-          onClick={onToggle}
-        >
-          <div className="flex items-start justify-between gap-4">
-            <div className="space-y-1.5">
-              <div className="flex items-center gap-2">
-                <Briefcase className="h-4 w-4 text-muted-foreground" />
-                <h3 className="font-semibold text-lg leading-none">
-                  {entry.title}
-                </h3>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                {entry.company}
-              </p>
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="text-sm text-muted-foreground whitespace-nowrap">
-                {`${formatDate(entry.date.start)} - ${formatDate(entry.date.end)}`}
-              </span>
-              <ChevronDown className={cn(
-                "h-4 w-4 text-muted-foreground transition-transform duration-300",
-                isActive && "rotate-180"
-              )} />
-            </div>
+      <Card className="bg-white border-[#cbd6e2] hover:shadow-sm transition-shadow">
+        <CardContent className="p-4">
+          <div className="flex items-center gap-3">
+            <span className="text-sm text-[#516f90] whitespace-nowrap">
+              {`${formatDate(entry.date.start)} - ${formatDate(entry.date.end)}`}
+            </span>
+            <ChevronDown className={cn(
+              "h-4 w-4 text-[#516f90] transition-transform",
+              isActive && "transform rotate-180"
+            )} />
           </div>
-        </div>
+          <h3 className="text-lg font-semibold text-[#33475b] mt-2">{entry.title}</h3>
+          <p className="text-[#516f90]">{entry.company}</p>
+          
+          {/* Achievement section */}
+          <div className="space-y-4 mt-4">
+            {entry.achievements.map((achievement) => (
+              <div key={achievement.id} className="flex items-start gap-2 text-[#516f90]">
+                <ArrowUpRight className="w-4 h-4 mt-1 text-[#00a4bd] flex-shrink-0" />
+                <span>{achievement.description}</span>
+              </div>
+            ))}
+          </div>
 
-        <AnimatePresence>
-          {isActive && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
-              <CardContent className="pb-6 space-y-6">
-                <p className="text-sm text-muted-foreground">
-                  {entry.description}
-                </p>
-
-                {/* Achievements with updated styling */}
-                <div className="space-y-3">
-                  <h4 className="text-sm font-medium">Key Achievements</h4>
-                  <div className="space-y-2">
-                    {entry.achievements.map((achievement) => (
-                      <div key={achievement.id} className="flex items-start gap-2 text-sm text-gray-600">
-                        <ArrowUpRight className="w-4 h-4 mt-1 text-blue-500 flex-shrink-0" />
-                        <span>{achievement.description}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Skills with updated styling */}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {entry.skills.map((skillUsage) => (
-                    <span
-                      key={skillUsage.skillId}
-                      className="text-xs px-2 py-1 rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
-                    >
-                      {skills[skillUsage.skillId].name}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </motion.div>
-          )}
-        </AnimatePresence>
+          {/* Skills section */}
+          <div className="flex flex-wrap gap-2 pt-2">
+            {entry.skills.map((skillUsage) => (
+              <span
+                key={skillUsage.skillId}
+                className="text-xs px-2 py-1 rounded-full bg-[#e5f5f8] text-[#00a4bd] hover:bg-[#d1eff3] transition-colors"
+              >
+                {skills[skillUsage.skillId].name}
+              </span>
+            ))}
+          </div>
+        </CardContent>
       </Card>
     </div>
   );
