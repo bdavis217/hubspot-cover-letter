@@ -1,35 +1,26 @@
-import { Search } from './components/search/Search';
 import { ProfilePanel } from './components/layout/ProfilePanel';
 import { TimelinePanel } from './components/layout/TimelinePanel';
-import { MetricsPanel } from './components/layout/MetricsPanel';
+import { RightPanel } from './components/layout/RightPanel';
+import { Search } from './components/search/Search';
 
 export function App() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Top Navigation */}
+    <div className="min-h-screen flex flex-col">
+      {/* Header */}
       <header className="border-b">
-        <div className="h-14 px-4 flex items-center justify-between">
+        <div className="container mx-auto px-6 h-16 flex items-center justify-between">
           <h1 className="text-xl font-semibold">Interactive Cover Letter</h1>
-          <Search />
+          <div className="w-96">
+            <Search />
+          </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex">
-        {/* Left Panel - Profile */}
-        <div className="w-80 border-r shrink-0">
-          <ProfilePanel />
-        </div>
-
-        {/* Middle Panel - Timeline */}
-        <div className="flex-1 min-w-0">
-          <TimelinePanel />
-        </div>
-
-        {/* Right Panel - Metrics */}
-        <div className="w-72 border-l shrink-0">
-          <MetricsPanel />
-        </div>
+      <main className="flex-1 grid grid-cols-[350px_1fr_350px] bg-background">
+        <ProfilePanel />
+        <TimelinePanel />
+        <RightPanel />
       </main>
     </div>
   );

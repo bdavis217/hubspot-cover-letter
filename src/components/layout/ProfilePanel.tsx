@@ -4,6 +4,7 @@ import { Separator } from '../ui/separator';
 import profilePic from '../../assets/images/profile.jpg';
 import { cn } from '../../lib/utils';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
+import { MetricsAndAwards } from '../metrics/MetricsAndAwards';
 
 interface Skill {
   name: string;
