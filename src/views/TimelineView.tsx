@@ -29,15 +29,41 @@ const companyAbbreviations = {
   'Unum - Baton Rouge': 'Unum',
 } as const;
 
+function getTransformStyle(isActive: boolean, direction: number, isLineAnimating: boolean) {
+  if (!isActive) {
+    return {
+      transform: `translateX(${direction * 120}%)`,
+      opacity: 0,
+      zIndex: 0,
+      transition: 'all 150ms cubic-bezier(0.4, 0, 0.2, 1)',
+      transitionDelay: '100ms'
+    };
+  }
+  return {
+    transform: 'translateX(0)',
+    opacity: isLineAnimating ? 0 : 1,
+    zIndex: 1,
+    transition: 'all 150ms cubic-bezier(0.4, 0, 0.2, 1)',
+    transitionDelay: '100ms'
+  };
+}
+
 export function TimelineView() {
   const [activeIndex, setActiveIndex] = React.useState(0);
+  const [isLineAnimating, setIsLineAnimating] = React.useState(false);
   
+  const handlePositionChange = (newIndex: number) => {
+    setIsLineAnimating(true);
+    setActiveIndex(newIndex);
+    setTimeout(() => setIsLineAnimating(false), 500); // Match line duration
+  };
+
   const handlePrevious = () => {
-    setActiveIndex((current) => Math.max(0, current - 1));
+    handlePositionChange(Math.max(0, activeIndex - 1));
   };
 
   const handleNext = () => {
-    setActiveIndex((current) => Math.min(positions.length - 1, current + 1));
+    handlePositionChange(Math.min(positions.length - 1, activeIndex + 1));
   };
 
   React.useEffect(() => {
@@ -51,7 +77,7 @@ export function TimelineView() {
   }, []);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-1">
       {/* Position Cards with Navigation */}
       <div className="relative">
         <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12">
@@ -80,59 +106,62 @@ export function TimelineView() {
           </button>
         </div>
 
-        <div className="relative overflow-hidden">
-          <div 
-            className="transition-transform duration-500 ease-in-out flex"
-            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-          >
-            {positions.map((position) => (
-              <Card 
+        {/* Updated Card Container - reduced height */}
+        <div className="relative h-[300px] overflow-hidden">
+          {positions.map((position, index) => {
+            const direction = index - activeIndex;
+            
+            return (
+              <div
                 key={position.id}
-                className="w-full flex-shrink-0 bg-white border-[#cbd6e2]"
+                className="absolute top-0 left-0 w-full transform-gpu"
+                style={getTransformStyle(index === activeIndex, direction, isLineAnimating)}
               >
-                <div className="p-6 space-y-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-[#33475b]">
-                      {position.title}
-                    </h3>
-                    <p className="text-[#516f90]">{position.company}</p>
-                    <p className="text-sm text-[#516f90]">{position.dateRange}</p>
-                  </div>
+                <Card className="bg-white border-[#cbd6e2]">
+                  <div className="p-6 space-y-4">
+                    <div>
+                      <h3 className="text-xl font-semibold text-[#33475b]">
+                        {position.title}
+                      </h3>
+                      <p className="text-[#516f90]">{position.company}</p>
+                      <p className="text-sm text-[#516f90]">{position.dateRange}</p>
+                    </div>
 
-                  <ul className="space-y-2">
-                    {position.description.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-[#33475b]">
-                        <span className="text-[#00a4bd]">↗</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="space-y-2">
+                      {position.description.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-[#33475b]">
+                          <span className="text-[#00a4bd]">↗</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
 
-                  <div className="flex flex-wrap gap-2">
-                    {position.skills.map((skill) => (
-                      <span 
-                        key={skill}
-                        className="px-3 py-1 text-sm rounded-full bg-[#f5f8fa] text-[#516f90]"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                    <div className="flex flex-wrap gap-2">
+                      {position.skills.map((skill) => (
+                        <span 
+                          key={skill}
+                          className="px-3 py-1 text-sm rounded-full bg-[#f5f8fa] text-[#516f90]"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </Card>
-            ))}
-          </div>
+                </Card>
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      {/* Updated Timeline */}
-      <div className="relative pt-8">
+      {/* Updated Timeline - removed padding */}
+      <div className="relative">
         {/* Base Line */}
         <div className="absolute top-1/2 left-0 right-0 h-px bg-[#cbd6e2]" />
         
         {/* Progress Line */}
         <div 
-          className="absolute top-1/2 left-0 h-px bg-[#00a4bd] transition-all duration-500"
+          className="absolute top-1/2 left-0 h-px bg-[#00a4bd] transition-all duration-1500 ease-linear"
           style={{
             width: `${(activeIndex / (positions.length - 1)) * 100}%`
           }}
@@ -144,18 +173,21 @@ export function TimelineView() {
             const Icon = companyIcons[position.company as keyof typeof companyIcons] || Building;
             const year = position.dateRange.split(' ').pop()?.split('-')[0];
             const abbr = companyAbbreviations[position.company as keyof typeof companyAbbreviations];
+            const isActive = index <= activeIndex;
 
             return (
               <button
                 key={position.id}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => handlePositionChange(index)}
                 className="group flex flex-col items-center"
               >
                 <div 
                   className={cn(
-                    "w-8 h-8 rounded-full transition-all duration-300",
+                    "w-8 h-8 rounded-full",
                     "flex items-center justify-center",
-                    index <= activeIndex
+                    "transition-all duration-150",
+                    "delay-100",
+                    isActive && !isLineAnimating
                       ? "bg-[#00a4bd] border-2 border-white"
                       : "bg-white border-2 border-[#cbd6e2]",
                     "group-hover:border-[#00a4bd]"
@@ -163,8 +195,9 @@ export function TimelineView() {
                 >
                   <Icon 
                     className={cn(
-                      "w-4 h-4 transition-colors",
-                      index <= activeIndex 
+                      "w-4 h-4 transition-colors duration-150",
+                      "delay-100",
+                      isActive && !isLineAnimating
                         ? "text-white" 
                         : "text-[#516f90]"
                     )}
@@ -184,8 +217,8 @@ export function TimelineView() {
         </div>
       </div>
 
-      {/* Navigation Controls */}
-      <div className="flex justify-center gap-2 mt-4">
+      {/* Navigation Controls - minimal margin */}
+      <div className="flex justify-center gap-2">
         {Array.from({ length: positions.length }).map((_, i) => (
           <button
             key={i}
