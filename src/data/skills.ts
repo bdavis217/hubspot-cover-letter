@@ -1,4 +1,6 @@
 import { Skill } from '../types/skills';
+import { Rocket } from 'lucide-react';
+import { VENTURE_INFO } from './ventures';
 
 export const skills: Skill[] = [
   // Leadership Skills
@@ -7,39 +9,77 @@ export const skills: Skill[] = [
     name: 'Engineering Leadership',
     category: 'leadership',
     description: 'Leading and mentoring engineering teams, fostering growth and innovation.',
-    companies: ['LSU Online & Continuing Education', 'Unum - Baton Rouge'],
-    level: 'expert'
+    companyLevels: [
+      { company: 'LSU Online & Continuing Education', level: 'expert' },
+      { company: 'Unum - Baton Rouge', level: 'expert'},
+      { company: 'Amedisys, Inc - Baton Rouge', level: 'intermediate' }
+    ],
+    level: 'expert',
+    ventures: {
+      icon: VENTURE_INFO.icon,
+      abbr: VENTURE_INFO.abbr,
+      date: VENTURE_INFO.startDate
+    }
   },
   {
     id: 'team-building',
     name: 'Team Building',
     category: 'leadership',
     description: 'Building and developing high-performing engineering teams.',
-    companies: ['LSU Online & Continuing Education', 'BCBS LA'],
-    level: 'expert'
+    companyLevels: [
+      { company: 'LSU Online & Continuing Education', level: 'expert' },
+      { company: 'Amedisys, Inc - Baton Rouge', level: 'intermediate' }
+    ],
+    level: 'expert',
+    ventures: {
+      icon: VENTURE_INFO.icon,
+      abbr: VENTURE_INFO.abbr,
+      date: VENTURE_INFO.startDate
+    }
   },
   {
     id: 'change-management',
     name: 'Change Management',
     category: 'leadership',
     description: 'Leading organizational and technical transformation initiatives.',
-    companies: ['LSU Online & Continuing Education'],
-    level: 'expert'
+    companyLevels: [
+      { company: 'LSU Online & Continuing Education', level: 'expert' },
+      { company: 'Unum - Baton Rouge', level: 'expert' },
+      { company: 'BCBS LA', level: 'expert' },
+      { company: 'Amedisys, Inc - Baton Rouge', level: 'intermediate' }
+    ],
+    level: 'expert',
+    ventures: {
+      icon: VENTURE_INFO.icon,
+      abbr: VENTURE_INFO.abbr,
+      date: VENTURE_INFO.startDate
+    }
   },
   {
     id: 'strategic-planning',
     name: 'Strategic Planning',
     category: 'leadership',
     description: 'Developing and executing long-term technical strategies.',
-    companies: ['LSU Online & Continuing Education'],
-    level: 'expert'
+    companyLevels: [
+      { company: 'LSU Online & Continuing Education', level: 'expert' }
+    ],
+    level: 'expert',
+    ventures: {
+      icon: VENTURE_INFO.icon,
+      abbr: VENTURE_INFO.abbr,
+      date: '2023'
+    }
   },
   {
     id: 'product-strategy',
     name: 'Product Strategy',
     category: 'leadership',
     description: 'Aligning technical solutions with product vision and business goals.',
-    companies: ['LSU Online & Continuing Education', 'BCBS LA'],
+    companyLevels: [
+      { company: 'LSU Online & Continuing Education', level: 'advanced', date: '2021' },
+      { company: 'Unum - Baton Rouge', level: 'advanced' },
+      { company: 'Amedisys, Inc - Baton Rouge', level: 'intermediate' }
+    ],
     level: 'advanced'
   },
 
@@ -49,23 +89,45 @@ export const skills: Skill[] = [
     name: 'Technical Architecture',
     category: 'strategy',
     description: 'Designing and implementing enterprise-scale system architectures.',
-    companies: ['LSU Online & Continuing Education', 'BCBS LA'],
-    level: 'expert'
+    companyLevels: [
+      { company: 'LSU Online & Continuing Education', level: 'expert', date: '2021' },
+      { company: 'Unum - Baton Rouge', level: 'expert' },
+      { company: 'Amedisys, Inc - Baton Rouge', level: 'advanced' }
+    ],
+    level: 'expert',
+    ventures: {
+      icon: VENTURE_INFO.icon,
+      abbr: VENTURE_INFO.abbr,
+      date: '2024'
+    }
   },
   {
     id: 'devops',
     name: 'DevOps & CI/CD',
     category: 'strategy',
     description: 'Implementing modern DevOps practices and automation pipelines.',
-    companies: ['LSU Online & Continuing Education', 'Unum - Baton Rouge'],
-    level: 'advanced'
+    companyLevels: [
+      { company: 'LSU Online & Continuing Education', level: 'expert', date: '2024' },
+      { company: 'Amedisys, Inc - Baton Rouge', level: 'advanced' }
+    ],
+    level: 'expert',
+    ventures: {
+      icon: VENTURE_INFO.icon,
+      abbr: VENTURE_INFO.abbr,
+      date: '2020'
+    }
   },
   {
     id: 'agile-sdlc',
     name: 'Agile/Waterfall SDLC',
     category: 'strategy',
     description: 'Leading teams using various software development methodologies.',
-    companies: ['LSU Online & Continuing Education', 'Unum - Baton Rouge'],
+    companyLevels: [
+      { company: 'LSU Online & Continuing Education', level: 'expert' },
+      { company: 'Unum - Baton Rouge', level: 'expert' },
+      { company: 'BCBS LA', level: 'advanced' },
+      { company: 'Amedisys, Inc - Baton Rouge', level: 'intermediate' }
+    ],
     level: 'expert'
   },
   {
@@ -73,15 +135,23 @@ export const skills: Skill[] = [
     name: 'System Scalability',
     category: 'strategy',
     description: 'Designing systems for performance and scale.',
-    companies: ['LSU Online & Continuing Education'],
-    level: 'advanced'
+    companyLevels: [
+      { company: 'LSU Online & Continuing Education', level: 'expert', date: '2021' },
+      { company: 'Unum - Baton Rouge', level: 'expert' },
+      { company: 'Amedisys, Inc - Baton Rouge', level: 'advanced' }
+    ],
+    level: 'expert'
   },
   {
     id: 'enterprise-solutions',
     name: 'Enterprise Solutions',
     category: 'strategy',
     description: 'Building and maintaining large-scale enterprise applications.',
-    companies: ['LSU Online & Continuing Education', 'BCBS LA'],
+    companyLevels: [
+      { company: 'LSU Online & Continuing Education', level: 'expert', date: '2021' },
+      { company: 'Unum - Baton Rouge', level: 'advanced' },
+      { company: 'Amedisys, Inc - Baton Rouge', level: 'advanced' }
+    ],
     level: 'expert'
   },
 
@@ -91,40 +161,50 @@ export const skills: Skill[] = [
     name: 'C#, SQL',
     category: 'technical',
     description: 'Enterprise application development and database design.',
-    companies: ['LSU Online & Continuing Education', 'BCBS LA', 'Amedisys, Inc - Baton Rouge'],
-    level: 'expert'
+    companyLevels: [
+      { company: 'LSU Online & Continuing Education', level: 'expert' },
+      { company: 'Unum - Baton Rouge', level: 'expert' },
+      { company: 'BCBS LA', level: 'expert' },
+      { company: 'Amedisys, Inc - Baton Rouge', level: 'advanced' }
+    ],
+    level: 'expert',
+    ventures: {
+      icon: VENTURE_INFO.icon,
+      abbr: VENTURE_INFO.abbr,
+      date: '2020'
+    }
   },
   {
-    id: 'angular',
-    name: 'Angular',
+    id: 'web-tech',
+    name: 'Web Technologies',
     category: 'technical',
-    description: 'Frontend development using Angular framework.',
-    companies: ['LSU Online & Continuing Education', 'Unum - Baton Rouge'],
-    level: 'advanced'
-  },
-  {
-    id: 'typescript',
-    name: 'TypeScript/JavaScript',
-    category: 'technical',
-    description: 'Modern web development using TypeScript and JavaScript.',
-    companies: ['LSU Online & Continuing Education'],
-    level: 'advanced'
-  },
-  {
-    id: 'html-css',
-    name: 'HTML/CSS',
-    category: 'technical',
-    description: 'Frontend development and responsive design.',
-    companies: ['LSU Online & Continuing Education'],
-    level: 'expert'
+    description: 'Modern web development using Angular, TypeScript, and responsive design.',
+    companyLevels: [
+      { company: 'LSU Online & Continuing Education', level: 'expert' },
+      { company: 'Unum - Baton Rouge', level: 'advanced' }
+    ],
+    level: 'expert',
+    ventures: {
+      icon: VENTURE_INFO.icon,
+      abbr: VENTURE_INFO.abbr,
+      date: '2020'
+    }
   },
   {
     id: 'ai-ml',
     name: 'AI/ML Solutions',
     category: 'technical',
-    description: 'Implementing AI and machine learning solutions.',
-    companies: ['LSU Online & Continuing Education'],
-    level: 'intermediate'
+    description: 'Building custom AI solutions and educating teams on AI implementation.',
+    companyLevels: [
+      { company: 'LSU Online & Continuing Education', level: 'intermediate', date: '2023' }
+    ],
+    level: 'intermediate',
+    ventures: {
+      icon: VENTURE_INFO.icon,
+      abbr: VENTURE_INFO.abbr,
+      date: '2024',
+      level: 'intermediate'
+    }
   }
 ];
 

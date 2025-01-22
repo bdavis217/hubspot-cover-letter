@@ -1,16 +1,31 @@
-import { TimelineEntry } from '../types/career';
 import { Rocket } from 'lucide-react';
+import type { TimelineEntry } from '../types/career';
+
+export const VENTURE_INFO = {
+  id: 'ventures',
+  name: 'Independent Ventures',
+  company: 'Entrepreneurial Projects',
+  abbr: 'Entre',
+  icon: Rocket,
+  startDate: '2021',
+  endDate: 'Present',
+  description: 'Building innovative technology solutions for various industries.',
+  color: {
+    text: 'text-[#ff7a59]',
+    bg: 'bg-[#fff4f2]'
+  }
+} as const;
 
 export const venturesData: TimelineEntry = {
-  id: 'ventures',
+  id: VENTURE_INFO.id,
   type: 'position',
   date: {
-    start: '2021',
-    end: 'Present'
+    start: VENTURE_INFO.startDate,
+    end: VENTURE_INFO.endDate
   },
-  title: 'Independent Ventures',
-  company: 'Entrepreneurial Projects',
-  description: 'Building innovative technology solutions for various industries.',
+  title: VENTURE_INFO.name,
+  company: VENTURE_INFO.company,
+  description: VENTURE_INFO.description,
   achievements: [
     {
       id: 'v1',
@@ -35,5 +50,5 @@ export const venturesData: TimelineEntry = {
     { skillId: 'modern-tech', level: 'lead' },
     { skillId: 'ai-solutions', level: 'lead' }
   ],
-  icon: Rocket
+  icon: VENTURE_INFO.icon
 };

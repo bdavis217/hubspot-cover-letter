@@ -63,6 +63,7 @@ export function App() {
         {/* Main Content Area */}
         <main className="flex-1 p-6">
           <div className="w-[900px]">
+            {activeView === 'timeline' && <TimelineView />}
             {/* Only MetricsView uses grid layout */}
             {activeView === 'metrics' ? (
               <div className="grid grid-cols-2 gap-6">
@@ -70,7 +71,6 @@ export function App() {
               </div>
             ) : (
               <>
-                {activeView === 'timeline' && <TimelineView />}
                 {activeView === 'skills' && <SkillsView />}
                 {activeView === 'awards' && <AwardsView />}
               </>

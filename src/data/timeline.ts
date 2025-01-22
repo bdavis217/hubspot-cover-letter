@@ -119,6 +119,33 @@ export const timelineData: TimelineEntry[] = [
     ],
     skills: [{ skillId: 'architecture', level: 'contributor' }],
     icon: Heart,
+  },
+  {
+    id: '5',
+    type: 'position',
+    date: {
+      start: '2019-03',
+      end: '2021-06'
+    },
+    title: 'IT Delivery Manager',
+    company: 'Unum - Baton Rouge',
+    description: 'Led and managed two agile teams, overseeing software delivery and professional development.',
+    achievements: [
+      {
+        id: 'e1',
+        description: 'Led cross-functional agile teams',
+        impact: 'Improved delivery efficiency and team performance',
+        skills: [
+          { skillId: 'eng-leadership', level: 'lead' },
+          { skillId: 'team-building', level: 'lead' }
+        ]
+      }
+    ],
+    skills: [
+      { skillId: 'eng-leadership', level: 'lead' },
+      { skillId: 'team-building', level: 'lead' }
+    ],
+    icon: Building2
   }
 ];
 
