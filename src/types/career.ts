@@ -1,8 +1,11 @@
+import { Skill, SkillCategory } from './skills';
+import { LucideIcon } from 'lucide-react';
+
 export interface Achievement {
   id: string;
   description: string;
   impact?: string;
-  skills: string[];
+  skills: SkillUsage[];
 }
 
 export interface CareerPosition {
@@ -17,35 +20,22 @@ export interface CareerPosition {
   logo?: string;
 }
 
-export interface Skill {
-  id: string;
-  name: string;
-  category: 'leadership' | 'technical' | 'domain' | 'soft';
-  description?: string;
-}
-
 export interface SkillUsage {
   skillId: string;
-  level?: 'lead' | 'contributor' | 'learning';
-  context?: string;
+  level: 'lead' | 'contributor';
 }
 
 export interface TimelineEntry {
   id: string;
-  type: 'position' | 'achievement' | 'recognition';
+  type: 'position';
   date: {
     start: string;
-    end: string | 'Present';
+    end: string;
   };
   title: string;
   company: string;
-  location?: string;
   description: string;
-  achievements: {
-    id: string;
-    description: string;
-    impact?: string;
-    skills: SkillUsage[];
-  }[];
+  achievements: Achievement[];
   skills: SkillUsage[];
+  icon: LucideIcon;
 } 

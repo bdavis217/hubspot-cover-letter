@@ -1,6 +1,14 @@
 import { TimelineEntry } from '../types/career';
 import { skills } from './skills';
 import { Position } from '../types/timeline';
+import { GraduationCap, Shield, Heart, Building2, Rocket } from 'lucide-react';
+
+export const companyIcons = {
+  'LSU Online & Continuing Education': GraduationCap,
+  'BCBS LA': Shield,
+  'Amedisys, Inc - Baton Rouge': Heart,
+  'Unum - Baton Rouge': Building2,
+} as const;
 
 export const timelineData: TimelineEntry[] = [
   {
@@ -19,8 +27,8 @@ export const timelineData: TimelineEntry[] = [
         description: 'Leading 5 engineering teams and infrastructure team',
         impact: 'Driving technical excellence and team growth',
         skills: [
-          { skillId: 'engLeadership', level: 'lead' },
-          { skillId: 'teamBuilding', level: 'lead' }
+          { skillId: 'eng-leadership', level: 'lead' },
+          { skillId: 'team-building', level: 'lead' }
         ]
       },
       {
@@ -28,8 +36,8 @@ export const timelineData: TimelineEntry[] = [
         description: 'Strategic oversight of core enterprise systems',
         impact: 'Ensuring alignment with business objectives',
         skills: [
-          { skillId: 'techStrategy', level: 'lead' },
-          { skillId: 'enterprise', level: 'lead' }
+          { skillId: 'tech-architecture', level: 'lead' },
+          { skillId: 'enterprise-solutions', level: 'lead' }
         ]
       },
       {
@@ -37,16 +45,17 @@ export const timelineData: TimelineEntry[] = [
         description: 'Implementing standardized processes for stability',
         impact: 'Improving system reliability and team efficiency',
         skills: [
-          { skillId: 'techStrategy', level: 'lead' },
-          { skillId: 'engLeadership', level: 'lead' }
+          { skillId: 'tech-architecture', level: 'lead' },
+          { skillId: 'eng-leadership', level: 'lead' }
         ]
       }
     ],
     skills: [
-      { skillId: 'engLeadership', level: 'lead' },
-      { skillId: 'techStrategy', level: 'lead' },
-      { skillId: 'teamBuilding', level: 'lead' }
-    ]
+      { skillId: 'eng-leadership', level: 'lead' },
+      { skillId: 'tech-architecture', level: 'lead' },
+      { skillId: 'team-building', level: 'lead' }
+    ],
+    icon: GraduationCap,
   },
   {
     id: '2',
@@ -66,7 +75,8 @@ export const timelineData: TimelineEntry[] = [
         skills: [{ skillId: 'architecture', level: 'lead' }]
       }
     ],
-    skills: [{ skillId: 'architecture', level: 'lead' }]
+    skills: [{ skillId: 'architecture', level: 'lead' }],
+    icon: GraduationCap,
   },
   {
     id: '3',
@@ -83,10 +93,11 @@ export const timelineData: TimelineEntry[] = [
         id: 'c1',
         description: 'Managing project outcome of core product',
         impact: 'Ensured successful delivery and implementation',
-        skills: [{ skillId: 'techStrategy', level: 'lead' }]
+        skills: [{ skillId: 'tech-architecture', level: 'lead' }]
       }
     ],
-    skills: [{ skillId: 'techStrategy', level: 'lead' }]
+    skills: [{ skillId: 'tech-architecture', level: 'lead' }],
+    icon: Shield,
   },
   {
     id: '4',
@@ -106,7 +117,8 @@ export const timelineData: TimelineEntry[] = [
         skills: [{ skillId: 'architecture', level: 'contributor' }]
       }
     ],
-    skills: [{ skillId: 'architecture', level: 'contributor' }]
+    skills: [{ skillId: 'architecture', level: 'contributor' }],
+    icon: Heart,
   }
 ];
 
@@ -171,4 +183,33 @@ export const positions: Position[] = [
     ],
     skills: ['Agile Leadership', 'DevOps', 'Cross-functional Team Management']
   }
-]; 
+];
+
+export const venturesData: TimelineEntry = {
+  id: 'ventures',
+  type: 'position',
+  date: {
+    start: '2021',
+    end: 'Present'
+  },
+  title: 'Independent Technology Ventures',
+  company: 'Independent Ventures',
+  description: 'Building and consulting on technology solutions.',
+  achievements: [
+    {
+      id: 'v1',
+      description: 'Consulting on enterprise architecture and technical strategy',
+      impact: 'Helping organizations modernize their technology stack',
+      skills: [
+        { skillId: 'tech-architecture', level: 'lead' },
+        { skillId: 'strategic-planning', level: 'lead' }
+      ]
+    }
+    // Add more achievements as needed
+  ],
+  skills: [
+    { skillId: 'tech-architecture', level: 'lead' },
+    { skillId: 'strategic-planning', level: 'lead' }
+  ],
+  icon: Rocket
+}; 
