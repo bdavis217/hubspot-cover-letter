@@ -1,5 +1,6 @@
 import { TimelineEntry } from '../types/career';
 import { skills } from './skills';
+import { Position } from '../types/timeline';
 
 export const timelineData: TimelineEntry[] = [
   {
@@ -106,5 +107,68 @@ export const timelineData: TimelineEntry[] = [
       }
     ],
     skills: [{ skillId: 'architecture', level: 'contributor' }]
+  }
+];
+
+export const positions: Position[] = [
+  {
+    id: 'lsu-director',
+    title: 'Executive Director, Strategic & Academic Technology',
+    company: 'LSU Online & Continuing Education',
+    dateRange: 'Aug 2024 - Present',
+    description: [
+      'Leading 5 engineering teams and infrastructure team',
+      'Strategic oversight of core enterprise systems',
+      'Implementing standardized processes for stability'
+    ],
+    skills: ['Engineering Leadership', 'Technical Strategy', 'Team Building']
+  },
+  {
+    id: 'lsu-apps-director',
+    title: 'Apps Dev Director, Business Technology',
+    company: 'LSU Online & Continuing Education',
+    dateRange: 'Jun 2021 - Aug 2024',
+    description: [
+      'Led enterprise architecture modernization',
+      'Improved system reliability',
+      'Reduced technical debt'
+    ],
+    skills: ['Enterprise Architecture', 'Technical Leadership', 'System Modernization']
+  },
+  {
+    id: 'bcbs-architect',
+    title: 'Apps Architect, Manager of Technical Business Solutions',
+    company: 'BCBS LA',
+    dateRange: 'Dec 2017 - Mar 2019',
+    description: [
+      'Led technical strategy and implementation',
+      'Managing project outcome of core product',
+      'Ensured successful delivery and implementation'
+    ],
+    skills: ['Technical Strategy', 'Project Management', 'Solution Architecture']
+  },
+  {
+    id: 'amedisys-manager',
+    title: 'Software Developer → Development Manager',
+    company: 'Amedisys, Inc - Baton Rouge',
+    dateRange: 'Dec 2003 - Aug 2015',
+    description: [
+      'Progressed from developer to development manager',
+      'Led technical initiatives and teams',
+      'Designed and developed custom software solutions'
+    ],
+    skills: ['Software Development', 'Team Leadership', 'Healthcare Solutions']
+  },
+  {
+    id: 'unum-manager',
+    title: 'IT Delivery Manager',
+    company: 'Unum - Baton Rouge',
+    dateRange: 'Mar 2019 - Jun 2021',
+    description: [
+      'Led and managed two agile teams (one fully remote), overseeing software delivery and professional development',
+      'Coordinated cross-functional teams of Engineers, QA Staff, and Business Analysts to drive innovation',
+      'Promoted and implemented DevOps, Scrum, and Software Engineering best practices'
+    ],
+    skills: ['Agile Leadership', 'DevOps', 'Cross-functional Team Management']
   }
 ]; 
