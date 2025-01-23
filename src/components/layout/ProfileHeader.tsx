@@ -38,7 +38,12 @@ export function ProfileHeader() {
                 <Mail className="h-4 w-4" />
                 bdavis217@gmail.com
               </a>
-              <a href="https://www.linkedin.com/in/briandavis-dev" className="flex items-center gap-2 text-[#00a4bd] hover:text-[#0095ab]">
+              <a 
+                href="https://www.linkedin.com/in/brianelliottdavis" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-2 text-[#00a4bd] hover:text-[#0095ab]"
+              >
                 <Linkedin className="h-4 w-4" />
                 LinkedIn Profile
               </a>
