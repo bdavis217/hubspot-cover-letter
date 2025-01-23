@@ -27,15 +27,15 @@ export interface SkillUsage {
 
 export interface TimelineEntry {
   id: string;
-  type: 'position';
+  type: string;
   date: {
     start: string;
     end: string;
   };
   title: string;
   company: string;
-  description: string;
+  description: string | string[];
   achievements: Achievement[];
   skills: SkillUsage[];
-  icon: LucideIcon;
+  icon: any;
 } 

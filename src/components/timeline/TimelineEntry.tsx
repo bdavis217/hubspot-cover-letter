@@ -48,7 +48,7 @@ export function TimelineEntry({
           <h3 className="text-lg font-semibold text-[#33475b] mt-2">{entry.title}</h3>
           <p className="text-[#516f90]">{entry.company}</p>
           
-          {/* Achievement section */}
+          {/* Description section */}
           <div className="space-y-4 mt-4">
             {entry.achievements.map((achievement) => (
               <div key={achievement.id} className="space-y-2">

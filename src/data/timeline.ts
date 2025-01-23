@@ -66,12 +66,24 @@ export const timelineData: TimelineEntry[] = [
     },
     title: 'Apps Dev Director, Business Technology',
     company: 'LSU Online & Continuing Education',
-    description: 'Directed application development and technical strategy for business systems.',
+    description: 'Directed application development and technical strategy.',
     achievements: [
       {
         id: 'b1',
         description: 'Led enterprise architecture modernization',
-        impact: 'Improved system reliability and reduced technical debt',
+        impact: 'Improved system reliability',
+        skills: [{ skillId: 'architecture', level: 'lead' }]
+      },
+      {
+        id: 'b2',
+        description: 'Improved system reliability',
+        impact: 'Enhanced system performance',
+        skills: [{ skillId: 'architecture', level: 'lead' }]
+      },
+      {
+        id: 'b3',
+        description: 'Reduced technical debt',
+        impact: 'Streamlined maintenance and updates',
         skills: [{ skillId: 'architecture', level: 'lead' }]
       }
     ],
@@ -91,8 +103,20 @@ export const timelineData: TimelineEntry[] = [
     achievements: [
       {
         id: 'c1',
+        description: 'Led technical strategy and implementation',
+        impact: 'Established architectural direction',
+        skills: [{ skillId: 'tech-architecture', level: 'lead' }]
+      },
+      {
+        id: 'c2',
         description: 'Managing project outcome of core product',
-        impact: 'Ensured successful delivery and implementation',
+        impact: 'Ensured successful delivery',
+        skills: [{ skillId: 'tech-architecture', level: 'lead' }]
+      },
+      {
+        id: 'c3',
+        description: 'Ensured successful delivery and implementation',
+        impact: 'Improved business outcomes',
         skills: [{ skillId: 'tech-architecture', level: 'lead' }]
       }
     ],
@@ -108,11 +132,23 @@ export const timelineData: TimelineEntry[] = [
     },
     title: 'Software Developer → Development Manager',
     company: 'Amedisys, Inc - Baton Rouge',
-    description: 'Progressed from developer to development manager, leading technical initiatives and teams.',
+    description: 'Progressed from developer to development manager.',
     achievements: [
       {
         id: 'd1',
-        description: 'Designed and developed custom software solutions, collaborating with cross-functional teams',
+        description: 'Progressed from developer to development manager',
+        impact: 'Career growth and expanded responsibilities',
+        skills: [{ skillId: 'architecture', level: 'contributor' }]
+      },
+      {
+        id: 'd2',
+        description: 'Led technical initiatives and teams',
+        impact: 'Improved team performance and delivery',
+        skills: [{ skillId: 'architecture', level: 'contributor' }]
+      },
+      {
+        id: 'd3',
+        description: 'Designed and developed custom software solutions',
         impact: 'Delivered integrated healthcare solutions',
         skills: [{ skillId: 'architecture', level: 'contributor' }]
       }
@@ -129,12 +165,30 @@ export const timelineData: TimelineEntry[] = [
     },
     title: 'IT Delivery Manager',
     company: 'Unum - Baton Rouge',
-    description: 'Led and managed two agile teams, overseeing software delivery and professional development.',
+    description: 'Led and managed agile teams, overseeing software delivery.',
     achievements: [
       {
         id: 'e1',
-        description: 'Led cross-functional agile teams',
-        impact: 'Improved delivery efficiency and team performance',
+        description: 'Led and managed two agile teams (one fully remote), overseeing software delivery and professional development',
+        impact: 'Improved delivery efficiency',
+        skills: [
+          { skillId: 'eng-leadership', level: 'lead' },
+          { skillId: 'team-building', level: 'lead' }
+        ]
+      },
+      {
+        id: 'e2',
+        description: 'Coordinated cross-functional teams of Engineers, QA Staff, and Business Analysts to drive innovation',
+        impact: 'Enhanced team collaboration',
+        skills: [
+          { skillId: 'eng-leadership', level: 'lead' },
+          { skillId: 'team-building', level: 'lead' }
+        ]
+      },
+      {
+        id: 'e3',
+        description: 'Promoted and implemented DevOps, Scrum, and Software Engineering best practices',
+        impact: 'Improved development processes',
         skills: [
           { skillId: 'eng-leadership', level: 'lead' },
           { skillId: 'team-building', level: 'lead' }
@@ -169,8 +223,6 @@ export const positions: Position[] = [
     dateRange: 'Jun 2021 - Aug 2024',
     description: [
       'Led enterprise architecture modernization',
-      'Improved system reliability',
-      'Reduced technical debt'
     ],
     skills: ['Enterprise Architecture', 'Technical Leadership', 'System Modernization']
   },
