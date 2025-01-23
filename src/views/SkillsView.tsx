@@ -114,21 +114,14 @@ function SkillCard({ skill }: SkillCardProps) {
               ))}
               
               {skill.ventures && (
-                <div className="flex items-center justify-between text-sm py-1.5">
-                  <div className="flex items-center space-x-4">
-                    <VENTURE_INFO.icon className={`w-4 h-4 ${VENTURE_INFO.color.text}`} />
-                    <span className={VENTURE_INFO.color.text}>
-                      {VENTURE_INFO.abbr}
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-4 ml-auto">
-                    <span className={VENTURE_INFO.color.text}>
-                      {skill.ventures.date}
-                    </span>
-                    <span className={`px-3 py-0.5 rounded-full text-xs font-medium w-[90px] text-center ${VENTURE_INFO.color.bg} ${VENTURE_INFO.color.text}`}>
-                      {skill.ventures.level || 'expert'}
-                    </span>
-                  </div>
+                <div className="grid grid-cols-[24px_60px_90px] items-center justify-center mx-auto gap-2 text-sm py-1.5">
+                  <VENTURE_INFO.icon className={`w-4 h-4 ${VENTURE_INFO.color.text}`} />
+                  <span className={`text-center ${VENTURE_INFO.color.text}`}>
+                    {VENTURE_INFO.abbr}
+                  </span>
+                  <span className={`px-3 py-0.5 rounded-full text-xs font-medium text-center ${VENTURE_INFO.color.bg} ${VENTURE_INFO.color.text}`}>
+                    {skill.ventures.level || 'expert'}
+                  </span>
                 </div>
               )}
             </div>
@@ -142,32 +135,18 @@ function SkillCard({ skill }: SkillCardProps) {
 function CompanyLevel({ companyLevel }: { companyLevel: CompanySkillLevel }) {
   const Icon = companyIcons[companyLevel.company as keyof typeof companyIcons];
   
-  // Get default date from timeline if not specified, extract just the year
-  const defaultDate = timelineData
-    .find(entry => entry.company === companyLevel.company)
-    ?.date.start.split('-')[0] || '';
-  
-  const displayDate = companyLevel.date || defaultDate;
-  
   return (
-    <div className="flex items-center justify-between text-sm py-1.5">
-      <div className="flex items-center space-x-4">
-        <Icon className="w-4 h-4 text-[#516f90]" />
-        <span className="text-[#33475b] min-w-[45px]">
-          {companyAbbreviations[companyLevel.company as keyof typeof companyAbbreviations]}
-        </span>
-      </div>
-      <div className="flex items-center space-x-4 ml-auto">
-        <span className="text-[#516f90] w-[45px] text-right font-mono">
-          {displayDate}
-        </span>
-        <span className={cn(
-          "px-3 py-0.5 rounded-full text-xs font-medium w-[90px] text-center",
-          levelColors[companyLevel.level]
-        )}>
-          {companyLevel.level}
-        </span>
-      </div>
+    <div className="grid grid-cols-[24px_60px_90px] items-center justify-center mx-auto gap-2 text-sm py-1.5">
+      <Icon className="w-4 h-4 text-[#516f90]" />
+      <span className="text-[#33475b] text-center">
+        {companyAbbreviations[companyLevel.company as keyof typeof companyAbbreviations]}
+      </span>
+      <span className={cn(
+        "px-3 py-0.5 rounded-full text-xs font-medium text-center",
+        levelColors[companyLevel.level]
+      )}>
+        {companyLevel.level}
+      </span>
     </div>
   );
 } 

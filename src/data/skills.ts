@@ -18,7 +18,8 @@ export const skills: Skill[] = [
     ventures: {
       icon: VENTURE_INFO.icon,
       abbr: VENTURE_INFO.abbr,
-      date: VENTURE_INFO.startDate
+      date: VENTURE_INFO.startDate,
+      level: 'expert'
     }
   },
   {
@@ -34,7 +35,8 @@ export const skills: Skill[] = [
     ventures: {
       icon: VENTURE_INFO.icon,
       abbr: VENTURE_INFO.abbr,
-      date: VENTURE_INFO.startDate
+      date: VENTURE_INFO.startDate,
+      level: 'expert'
     }
   },
   {
@@ -52,7 +54,8 @@ export const skills: Skill[] = [
     ventures: {
       icon: VENTURE_INFO.icon,
       abbr: VENTURE_INFO.abbr,
-      date: VENTURE_INFO.startDate
+      date: VENTURE_INFO.startDate,
+      level: 'expert'
     }
   },
   {
@@ -67,7 +70,8 @@ export const skills: Skill[] = [
     ventures: {
       icon: VENTURE_INFO.icon,
       abbr: VENTURE_INFO.abbr,
-      date: '2023'
+      date: '2023',
+      level: 'expert'
     }
   },
   {
@@ -98,7 +102,8 @@ export const skills: Skill[] = [
     ventures: {
       icon: VENTURE_INFO.icon,
       abbr: VENTURE_INFO.abbr,
-      date: '2024'
+      date: '2024',
+      level: 'expert'
     }
   },
   {
@@ -114,7 +119,8 @@ export const skills: Skill[] = [
     ventures: {
       icon: VENTURE_INFO.icon,
       abbr: VENTURE_INFO.abbr,
-      date: '2020'
+      date: '2020',
+      level: 'expert'
     }
   },
   {
@@ -171,7 +177,8 @@ export const skills: Skill[] = [
     ventures: {
       icon: VENTURE_INFO.icon,
       abbr: VENTURE_INFO.abbr,
-      date: '2020'
+      date: '2020',
+      level: 'expert'
     }
   },
   {
@@ -187,7 +194,8 @@ export const skills: Skill[] = [
     ventures: {
       icon: VENTURE_INFO.icon,
       abbr: VENTURE_INFO.abbr,
-      date: '2020'
+      date: '2020',
+      level: 'expert'
     }
   },
   {

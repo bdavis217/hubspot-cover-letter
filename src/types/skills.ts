@@ -20,6 +20,6 @@ export interface Skill {
     icon: typeof Rocket;
     abbr: string;  // e.g., "IV" for Independent Ventures
     date: string;  // e.g., "2021"
-    level: 'expert' | 'advanced' | 'intermediate';
+    level?: 'expert' | 'advanced' | 'intermediate';  // Make level optional
   };
 } 
