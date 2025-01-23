@@ -1,0 +1,95 @@
+# HubSpot Interactive Cover Letter - System Rules
+
+## Project Context
+This project is an interactive cover letter designed for a HubSpot Senior Engineering Manager position in their Discovery group. The application demonstrates search expertise through a CRM-style interface, highlighting both technical capabilities and domain understanding.
+
+## Architecture Guidelines
+1. Component Structure:
+   - Use feature-based folder organization in src/
+   - Separate reusable UI components into src/components/ui/
+   - Keep business logic separate from UI components
+   - Implement container/presenter pattern where appropriate
+
+2. Core Technologies:
+   - React with Vite
+   - Tailwind CSS for styling
+   - shadcn/ui components
+   - Lucide Icons
+   - No custom CSS files - use Tailwind exclusively
+
+3. Styling Standards:
+   - Use only Tailwind's core utility classes
+   - Avoid arbitrary values (e.g., no h-[500px])
+   - Follow shadcn/ui theming conventions
+   - Maintain consistent spacing and color schemes
+
+4. Search Implementation:
+   - Implement type-ahead suggestions
+   - Support filter tokens
+   - Include keyboard shortcuts
+   - Highlight matched content
+
+## Component Guidelines
+1. Each component should:
+   - Have a single responsibility
+   - Be fully typed with PropTypes
+   - Include brief JSDoc documentation
+   - Be tested where appropriate
+
+2. State Management:
+   - Use React hooks for local state
+   - Keep state as close to usage as possible
+   - Implement proper data flow patterns
+
+3. Performance Considerations:
+   - Memoize callbacks and expensive computations
+   - Lazy load components when beneficial
+   - Implement proper React key usage
+   - Optimize re-renders
+
+## Code Style
+1. Format:
+   - Use semicolons
+   - Use single quotes for strings
+   - 2-space indentation
+   - Max line length of 80 characters
+
+2. Naming:
+   - Use PascalCase for components
+   - Use camelCase for variables and functions
+   - Use UPPERCASE for constants
+   - Prefix hooks with 'use'
+
+3. Comments:
+   - Include JSDoc for component props
+   - Explain complex business logic
+   - Document any workarounds or technical debt
+
+## Search Features
+Implement search functionality that demonstrates expertise relevant to the Discovery group:
+1. Smart filtering with multiple token types
+2. Keyboard shortcuts for power users
+3. Type-ahead suggestions
+4. Results highlighting
+5. Search analytics
+
+## Accessibility
+1. Follow WCAG 2.1 guidelines
+2. Implement proper ARIA labels
+3. Ensure keyboard navigation
+4. Maintain sufficient color contrast
+5. Support screen readers
+
+## Performance Targets
+1. Initial load under 2 seconds
+2. Time to interactive under 3 seconds
+3. Search response under 100ms
+4. Smooth animations (60fps)
+
+## Error Handling
+1. Implement proper error boundaries
+2. Provide user-friendly error messages
+3. Log errors appropriately
+4. Graceful degradation of features
+
+This project demonstrates both technical excellence and domain understanding while maintaining a professional, polished presentation.
