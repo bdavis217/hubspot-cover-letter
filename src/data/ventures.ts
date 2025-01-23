@@ -29,7 +29,7 @@ export const venturesData: TimelineEntry = {
   achievements: [
     {
       id: 'v1',
-      description: 'Built AI-driven document processor for law firm',
+      description: 'Co-founded 3Wrkz, developing AI-driven document processing solutions',
       impact: 'Automated document processing and analysis',
       skills: [
         { skillId: 'ai-ml', level: 'lead' },
@@ -43,6 +43,15 @@ export const venturesData: TimelineEntry = {
       skills: [
         { skillId: 'angular', level: 'lead' },
         { skillId: 'typescript', level: 'lead' }
+      ]
+    },
+    {
+      id: 'v3',
+      description: 'Guiding product strategy to evolve document processor into a versatile SaaS platform',
+      impact: 'Expanding market reach and scalability',
+      skills: [
+        { skillId: 'product-strategy', level: 'lead' },
+        { skillId: 'saas', level: 'lead' }
       ]
     }
   ],

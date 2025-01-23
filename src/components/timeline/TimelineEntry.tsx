@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Briefcase, ChevronDown, ArrowUpRight } from 'lucide-react';
+import { Briefcase, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../../lib/utils';
 import { Card, CardContent } from '../../components/ui/card';
@@ -40,10 +40,6 @@ export function TimelineEntry({
             <span className="text-sm text-[#516f90] whitespace-nowrap">
               {`${formatDate(entry.date.start)} - ${formatDate(entry.date.end)}`}
             </span>
-            <ChevronDown className={cn(
-              "h-4 w-4 text-[#516f90] transition-transform",
-              isActive && "transform rotate-180"
-            )} />
           </div>
           <h3 className="text-lg font-semibold text-[#33475b] mt-2">{entry.title}</h3>
           <p className="text-[#516f90]">{entry.company}</p>

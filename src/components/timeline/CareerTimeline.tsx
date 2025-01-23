@@ -66,7 +66,7 @@ export function CareerTimeline() {
               <button
                 onClick={() => handlePositionClick(index)}
                 className={cn(
-                  "w-12 h-12 rounded-full flex items-center justify-center transition-colors",
+                  "w-16 h-16 rounded-full flex items-center justify-center transition-colors p-2",
                   index === activePosition 
                     ? "bg-[#00a4bd] border-2 border-[#00a4bd] text-white" 
                     : index < activePosition
@@ -76,7 +76,7 @@ export function CareerTimeline() {
               >
                 {React.createElement(position.icon, { 
                   className: cn(
-                    "w-8 h-8",
+                    "w-10 h-10",
                     index <= activePosition ? "text-white" : "text-[#516f90]"
                   )
                 })}
@@ -103,13 +103,13 @@ export function CareerTimeline() {
             <button
               onClick={handleVenturesClick}
               className={cn(
-                "w-12 h-12 rounded-full flex items-center justify-center transition-colors",
+                "w-16 h-16 rounded-full flex items-center justify-center transition-colors p-2",
                 isVenturesActive
                   ? "bg-[#ff7a59] border-2 border-[#ff7a59] text-white"
                   : "bg-white border-2 border-[#ff7a59] text-[#ff7a59]"
               )}
             >
-              <Rocket className="w-8 h-8" />
+              <Rocket className="w-10 h-10" />
             </button>
             <div className="mt-2 text-center">
               <div className={cn(

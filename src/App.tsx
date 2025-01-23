@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Search } from './components/search/Search';
 import { Clock, Code, BarChart, Award } from 'lucide-react';
 import { cn } from './lib/utils';
 import { TimelineView } from './views/TimelineView';
@@ -24,9 +23,6 @@ export function App() {
       <header className="h-16 border-b border-[#cbd6e2] bg-white">
         <div className="container mx-auto px-6 h-full flex items-center justify-between">
           <h1 className="text-xl font-semibold text-[#33475b]">Interactive Cover Letter</h1>
-          <div className="w-96">
-            <Search />
-          </div>
         </div>
       </header>
 

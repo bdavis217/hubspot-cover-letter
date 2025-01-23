@@ -91,10 +91,55 @@ export const timelineData: TimelineEntry[] = [
     icon: GraduationCap,
   },
   {
+    id: '5',
+    type: 'position',
+    date: {
+      start: '2019-03',
+      end: '2021-06'
+    },
+    title: 'IT Delivery Manager',
+    company: 'Unum - Baton Rouge',
+    description: 'Led and managed agile teams, overseeing software delivery.',
+    achievements: [
+      {
+        id: 'e1',
+        description: 'Led and managed two agile teams (one fully remote), overseeing software delivery and professional development',
+        impact: 'Improved delivery efficiency',
+        skills: [
+          { skillId: 'eng-leadership', level: 'lead' },
+          { skillId: 'team-building', level: 'lead' }
+        ]
+      },
+      {
+        id: 'e2',
+        description: 'Coordinated cross-functional teams of Engineers, QA Staff, and Business Analysts to drive innovation',
+        impact: 'Enhanced team collaboration',
+        skills: [
+          { skillId: 'eng-leadership', level: 'lead' },
+          { skillId: 'team-building', level: 'lead' }
+        ]
+      },
+      {
+        id: 'e3',
+        description: 'Promoted and implemented DevOps, Scrum, and Software Engineering best practices',
+        impact: 'Improved development processes',
+        skills: [
+          { skillId: 'eng-leadership', level: 'lead' },
+          { skillId: 'team-building', level: 'lead' }
+        ]
+      }
+    ],
+    skills: [
+      { skillId: 'eng-leadership', level: 'lead' },
+      { skillId: 'team-building', level: 'lead' }
+    ],
+    icon: Building2
+  },
+  {
     id: '3',
     type: 'position',
     date: {
-      start: '2017-12',
+      start: '2015-08',
       end: '2019-03'
     },
     title: 'Apps Architect, Manager of Technical Business Solutions',
@@ -156,51 +201,6 @@ export const timelineData: TimelineEntry[] = [
     skills: [{ skillId: 'architecture', level: 'contributor' }],
     icon: Heart,
   },
-  {
-    id: '5',
-    type: 'position',
-    date: {
-      start: '2019-03',
-      end: '2021-06'
-    },
-    title: 'IT Delivery Manager',
-    company: 'Unum - Baton Rouge',
-    description: 'Led and managed agile teams, overseeing software delivery.',
-    achievements: [
-      {
-        id: 'e1',
-        description: 'Led and managed two agile teams (one fully remote), overseeing software delivery and professional development',
-        impact: 'Improved delivery efficiency',
-        skills: [
-          { skillId: 'eng-leadership', level: 'lead' },
-          { skillId: 'team-building', level: 'lead' }
-        ]
-      },
-      {
-        id: 'e2',
-        description: 'Coordinated cross-functional teams of Engineers, QA Staff, and Business Analysts to drive innovation',
-        impact: 'Enhanced team collaboration',
-        skills: [
-          { skillId: 'eng-leadership', level: 'lead' },
-          { skillId: 'team-building', level: 'lead' }
-        ]
-      },
-      {
-        id: 'e3',
-        description: 'Promoted and implemented DevOps, Scrum, and Software Engineering best practices',
-        impact: 'Improved development processes',
-        skills: [
-          { skillId: 'eng-leadership', level: 'lead' },
-          { skillId: 'team-building', level: 'lead' }
-        ]
-      }
-    ],
-    skills: [
-      { skillId: 'eng-leadership', level: 'lead' },
-      { skillId: 'team-building', level: 'lead' }
-    ],
-    icon: Building2
-  }
 ];
 
 export const positions: Position[] = [
@@ -230,7 +230,7 @@ export const positions: Position[] = [
     id: 'bcbs-architect',
     title: 'Apps Architect, Manager of Technical Business Solutions',
     company: 'BCBS LA',
-    dateRange: 'Dec 2017 - Mar 2019',
+    dateRange: 'Aug 2015 - Mar 2019',
     description: [
       'Led technical strategy and implementation',
       'Managing project outcome of core product',
