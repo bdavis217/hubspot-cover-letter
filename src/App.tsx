@@ -4,9 +4,9 @@ import { Clock, Code, BarChart, Award } from 'lucide-react';
 import { cn } from './lib/utils';
 import { TimelineView } from './views/TimelineView';
 import { SkillsView } from './views/SkillsView';
-import { MetricsView } from './views/MetricsView';
 import { AwardsView } from './views/AwardsView';
 import { ProfileHeader } from './components/layout/ProfileHeader';
+import { MetricsGrid } from './components/metrics/MetricsGrid';
 
 const navigationItems = [
   { id: 'timeline', label: 'Experience Timeline', icon: Clock },
@@ -64,17 +64,9 @@ export function App() {
         <main className="flex-1 p-6">
           <div className="w-[900px]">
             {activeView === 'timeline' && <TimelineView />}
-            {/* Only MetricsView uses grid layout */}
-            {activeView === 'metrics' ? (
-              <div className="grid grid-cols-2 gap-6">
-                <MetricsView />
-              </div>
-            ) : (
-              <>
-                {activeView === 'skills' && <SkillsView />}
-                {activeView === 'awards' && <AwardsView />}
-              </>
-            )}
+            {activeView === 'metrics' && <MetricsGrid />}
+            {activeView === 'skills' && <SkillsView />}
+            {activeView === 'awards' && <AwardsView />}
           </div>
         </main>
       </div>
